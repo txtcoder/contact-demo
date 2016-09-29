@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app='ContactListApp'>
+  <head>
+    <meta charset="utf-8">
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <style> body { font-size: 1.2em; }
+    ul {list-style:none;}</style>
+    <title>Contacts</title>
+  </head>
+  <body>
+    <h1>AtmisCRM</h1>
+    <div ng-controller='ContactListController as a' style="display:inline;">
+      <!-- Searchable Contact List: -->
+
+      <h3>Contacts:</h3>
+      <span class="glyphicon glyphicon-search"></span><input type="text" ng-model="search">
+      <div style="height:800px;width:300px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
+      <ul class="list-unstyled list-group">
+        <li class="list-group-item list-group-item-warning" ng-click="setContact(item)" ng-repeat="item in ContactList | filter : search">{{ item }}</li>
+      </ul>
+    </div>
+
+    </div>
+
+    <div ng-controller="ShowContactController as scope">
+      <div style="height:800px;width:1000px;border:1px solid #ccc;position: absolute;right:200px; top: 100px;">
+        <div ng-repeat="contact in scope.showContact">
+            <div> First Name: {{contact[0]}}</div>
+            <div> Last name: {{contact[1]}}</div>
+            <div> company name: {{contact[2]}} </div>
+            <div> address: {{contact[3]}} </div>
+            <div> city: {{contact[4]}} </div>
+            <div> county: {{contact[5]}} </div>
+            <div> state: {{contact[6]}} </div>
+            <div> zip: {{contact[7]}} </div>
+            <div> phone1: {{contact[8]}} </div>
+            <div> phone2: {{contact[9]}} </div>
+            <div> email: {{contact[10]}} </div>
+            <div> web: {{contact[11]}} </div>
+      </div>
+    </div>
+  </body>
+</html>
